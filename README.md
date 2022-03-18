@@ -1,5 +1,5 @@
 # Demo Integracion BFF con Kafka, HTTP, Mocks
-=============================================
+---
 
 La siguiente tiene 3 aplicaciones:
 - jiren-bff: Simula el BFF, y que se comunica contra Kafka, HTTP, Mocks de forma configurable.
@@ -11,7 +11,7 @@ Esta demo trabajaría solo con jiren-bff y jiren-serv01.
 Puede importar los archivos de Collections y Environments para poder realizar las pruebas. Estos se ubican en: `postman-files`
 
 ## Breve ejecucuión
-===================
+---
 Para poder ejecutar los escenarios primero debe realizar primero la preparación de Kafka, haber importado los archivos de postman para llamar al servicio.
 
 Mantener en lo posible Kafka ya iniciado y las colas ya creadas
@@ -20,6 +20,7 @@ Mantener en lo posible Kafka ya iniciado y las colas ya creadas
 
 1. En este caso puede modificar el archivo:
 `jiren-bff\src\main\resources\application.yml`
+
 ...y deberia quedar del siguiente modo:
 
 ```
@@ -37,6 +38,7 @@ Puede ver en log que el servicio que reponde es `MockCustomerService`
 
 1. En este caso puede modificar el archivo:
 `jiren-bff\src\main\resources\application.yml`
+
 ...y deberia quedar del siguiente modo:
 
 ```
@@ -55,6 +57,7 @@ Puede ver en log que el servicio que reponde es `KafkaCustomerService`, y que ah
 
 1. En este caso puede modificar el archivo:
 `jiren-bff\src\main\resources\application.yml`
+
 ...y deberia quedar del siguiente modo:
 
 ```
@@ -72,7 +75,7 @@ Puede ver en log que el servicio que reponde es `RestCustomerService`, y que aho
 
 
 ## Preparacion de Kafka
-=======================
+---
 
 La version a usar es kafka_2.12-3.1, y se puede descargar desde acá:
 [Download kafka_2.12-3.1](https://kafka.apache.org/downloads)
@@ -85,25 +88,38 @@ KAFKA_HOME=kafka_2.12-3.1
 Realizamos:
 1. Duplicamos el archivo `%KAFKA_HOME%\config\log4j.properties` con el nombre `zookeeper.log4j.properties`
 2. Abrimos dicho archivo y a todo el contenido con:
+
 ...`File=${kafka.logs.dir}`
+
 ...lo modificamos por:
+
 ...`File=${kafka.logs.dir}/zookeeper`
+
 ...Esto es para que se utilice la carpeta zookeeper como nueva ubicacion de los logs de zookeeper. Una linea de ejemplo nos quedaria asi:
+
 ...`log4j.appender.kafkaAppender.File=${kafka.logs.dir}/zookeeper/server.log`
+
 ...Guardamos el archivo y lo cerramos
+
 3. Abrimos el archivo: %KAFKA_HOME%\bin\windows\zookeeper-server-start.bat, y modificamos la linea 24 que dice:
+
 ...`/config/log4j.properties`
+
 ...por la linea:
+
 ...`/config/zookeeper.log4j.properties`
+
 ...Le estamos diciendo que use la configuracion que acabamos de crear. Nos quedaría algo asi:
+
 ...`set KAFKA_LOG4J_OPTS=-Dlog4j.configuration=file:%~dp0../../config/zookeeper.log4j.properties
 `
+
 ...Guardamos el archivo y lo cerramos
 
 Listo, con eso basta.
 
 ## Comandos Kafka
-=================
+---
 
 Los siguientes comandos asumen que estamos ubicados en `%KAFKA_HOME%`. Además puede consultar otras operaciones básicas en:
 
