@@ -93,15 +93,12 @@ Realizamos:
    Guardamos el archivo y lo cerramos
 
 3. Abrimos el archivo:`%KAFKA_HOME%\bin\windows\zookeeper-server-start.bat`, y modificamos la linea 24 que dice:
-`/config/log4j.properties`
-por la linea:
-`/config/zookeeper.log4j.properties`
-
-Le estamos diciendo que use la configuracion que acabamos de crear. Nos quedaría algo asi:
-
-`set KAFKA_LOG4J_OPTS=-Dlog4j.configuration=file:%~dp0../../config/zookeeper.log4j.properties
-`
-Guardamos el archivo y lo cerramos
+   `/config/log4j.properties`  
+   por la linea:  
+   `/config/zookeeper.log4j.properties`  
+   Le estamos diciendo que use la configuracion que acabamos de crear. Nos quedaría algo asi:  
+   `set KAFKA_LOG4J_OPTS=-Dlog4j.configuration=file:%~dp0../../config/zookeeper.log4j.properties`  
+   Guardamos el archivo y lo cerramos
 
 Listo, con eso basta.
 
