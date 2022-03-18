@@ -20,7 +20,7 @@ Mantener en lo posible Kafka ya iniciado y las colas ya creadas
 1. En este caso puede modificar el archivo:
 `jiren-bff\src\main\resources\application.yml`
 
-⋅⋅⋅y deberia quedar del siguiente modo:⋅⋅
+y deberia quedar del siguiente modo:
 ```
 services:
   customer: MockCustomerService
@@ -36,7 +36,7 @@ Puede ver en log que el servicio que reponde es `MockCustomerService`
 
 1. En este caso puede modificar el archivo:
 `jiren-bff\src\main\resources\application.yml`
-⋅⋅⋅y deberia quedar del siguiente modo:⋅⋅
+y deberia quedar del siguiente modo:
 
 ```
 services:
@@ -55,7 +55,7 @@ Puede ver en log que el servicio que reponde es `KafkaCustomerService`, y que ah
 1. En este caso puede modificar el archivo:
 `jiren-bff\src\main\resources\application.yml`
 
-⋅⋅⋅y deberia quedar del siguiente modo:⋅⋅
+y deberia quedar del siguiente modo:
 ```
 services:
 #  customer: MockCustomerService
