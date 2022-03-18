@@ -72,7 +72,6 @@ Puede ver en log que el servicio que reponde es `RestCustomerService`, y que aho
 
 ## Preparacion de Kafka
 
-
 La version a usar es kafka_2.12-3.1, y se puede descargar desde acá:
 [Download kafka_2.12-3.1](https://kafka.apache.org/downloads)
 
@@ -103,7 +102,6 @@ Realizamos:
 Listo, con eso basta.
 
 ## Comandos Kafka
----
 
 Los siguientes comandos asumen que estamos ubicados en `%KAFKA_HOME%`. Además puede consultar otras operaciones básicas en:
 
