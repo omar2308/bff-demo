@@ -84,24 +84,23 @@ KAFKA_HOME=kafka_2.12-3.1
 Realizamos:
 1. Duplicamos el archivo `%KAFKA_HOME%\config\log4j.properties` con el nombre `zookeeper.log4j.properties`
 2. Abrimos dicho archivo y a todo el contenido con:
-⋅⋅⋅`File=${kafka.logs.dir}`⋅⋅
-⋅⋅⋅lo modificamos por:⋅⋅
-⋅⋅⋅`File=${kafka.logs.dir}/zookeeper`⋅⋅
-⋅⋅⋅Esto es para que se utilice la carpeta zookeeper como nueva ubicacion de los logs de zookeeper. Una linea de ejemplo nos quedaria asi:⋅⋅
-⋅⋅⋅`log4j.appender.kafkaAppender.File=${kafka.logs.dir}/zookeeper/server.log`⋅⋅
-⋅⋅⋅Guardamos el archivo y lo cerramos⋅⋅
+`File=${kafka.logs.dir}`
+lo modificamos por:
+`File=${kafka.logs.dir}/zookeeper`
+Esto es para que se utilice la carpeta zookeeper como nueva ubicacion de los logs de zookeeper. Una linea de ejemplo nos quedaria asi:
+`log4j.appender.kafkaAppender.File=${kafka.logs.dir}/zookeeper/server.log`
+Guardamos el archivo y lo cerramos
 
 3. Abrimos el archivo: %KAFKA_HOME%\bin\windows\zookeeper-server-start.bat, y modificamos la linea 24 que dice:
-⋅⋅⋅`/config/log4j.properties`⋅⋅
-⋅⋅⋅por la linea:⋅⋅
-⋅⋅⋅`/config/zookeeper.log4j.properties`⋅⋅
+`/config/log4j.properties`
+por la linea:
+`/config/zookeeper.log4j.properties`
 
-...Le estamos diciendo que use la configuracion que acabamos de crear. Nos quedaría algo asi:
+Le estamos diciendo que use la configuracion que acabamos de crear. Nos quedaría algo asi:
 
-...`set KAFKA_LOG4J_OPTS=-Dlog4j.configuration=file:%~dp0../../config/zookeeper.log4j.properties
+`set KAFKA_LOG4J_OPTS=-Dlog4j.configuration=file:%~dp0../../config/zookeeper.log4j.properties
 `
-
-...Guardamos el archivo y lo cerramos
+Guardamos el archivo y lo cerramos
 
 Listo, con eso basta.
 
